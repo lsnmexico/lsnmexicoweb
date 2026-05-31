@@ -1,13 +1,7 @@
         // CONFIGURATION - SZERVER BEÁLLÍTÁSOK
         const SERVER_CONFIG = {
-            // 1. Ha van Cfx.re Join kódod (Pl. "ab12cd"), írd be ide. Ezzel a legbiztosabb a lekérdezés!
-            // Ezt megtalálod a cfx.re/join/XXXXXX link végén. Ha ezt használod, nincs szükség CORS proxyra.
-            cfxId: "bdxqolp", 
-
-            // 2. Ha nincs Cfx kódod, add meg a közvetlen IP címet és portot (Alapértelmezett FiveM port a 30120)
-            serverIp: "94.156.37.78:30120", 
-
-            // 3. Frissítési időköz ezredmásodpercben (Pl. 15000 = 15 másodperc)
+            serverIp: "94.156.37.78",
+            serverPort: "30120",
             updateInterval: 5000 
         };
 
@@ -15,71 +9,48 @@
         const countElem = document.getElementById('player-count');
         const maxElem = document.getElementById('max-players');
 
-        // Valós idejű státusz lekérdezés
+        // Valós idejű státusz lekérdezés - Direct Query
         async function fetchServerStatus() {
             try {
-                let currentPlayers = 0;
-                let maxPlayers = 250;
-                let isOnline = false;
-
                 console.log("🔍 Szerver státusz lekérdezésének indítása...");
-
-                if (SERVER_CONFIG.cfxId) {
-                    console.log("📡 CFX ID-vel próbálunk csatlakozni:", SERVER_CONFIG.cfxId);
+                
+                // Direct FiveM szerver query - /info.json
+                const infoUrl = `http://${SERVER_CONFIG.serverIp}:${SERVER_CONFIG.serverPort}/info.json`;
+                console.log("📡 Lekérdezés:", infoUrl);
+                
+                const response = await fetch(infoUrl, {
+                    method: 'GET',
+                    mode: 'cors',
+                    cache: 'no-cache'
+                });
+                
+                console.log("Válasz státusza:", response.status);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log("✅ Szerver adatok:", data);
                     
-                    // Lekérdezés a hivatalos Cfx.re API-n keresztül (CORS engedélyezett!)
-                    const response = await fetch(`https://servers-frontend.fivem.net/api/servers/single/${SERVER_CONFIG.cfxId}`);
-                    console.log("Cfx API válasz státusza:", response.status);
+                    const currentPlayers = data.clients || 0;
+                    const maxPlayers = data.sv_maxclients || 10;
                     
-                    if (response.ok) {
-                        const data = await response.json();
-                        console.log("✅ Cfx API adatok:", data);
-                        
-                        if (data && data.Data) {
-                            currentPlayers = data.Data.clients || 0;
-                            maxPlayers = data.Data.sv_maxclients || 250;
-                            isOnline = true;
-                            console.log(`✅ Szerver Online: ${currentPlayers}/${maxPlayers} játékos`);
-                        }
-                    } else {
-                        console.warn("❌ Cfx API hiba:", response.status, response.statusText);
-                        throw new Error(`CFX API hiba: ${response.status}`);
-                    }
-                } else if (SERVER_CONFIG.serverIp) {
-                    console.log("🌐 IP-vel próbálunk csatlakozni:", SERVER_CONFIG.serverIp);
-                    
-                    // Közvetlen FiveM szerver lekérdezés
-                    const response = await fetch(`http://${SERVER_CONFIG.serverIp}/info.json`, { timeout: 5000 });
-                    console.log("Direct IP válasz státusza:", response.status);
-                    
-                    if (response.ok) {
-                        const data = await response.json();
-                        console.log("✅ Direct IP adatok:", data);
-                        
-                        currentPlayers = data.clients || 0;
-                        maxPlayers = data.sv_maxclients || 250;
-                        isOnline = true;
-                        console.log(`✅ Szerver Online: ${currentPlayers}/${maxPlayers} játékos`);
-                    }
-                }
-
-                if (isOnline) {
+                    // Update DOM
                     countElem.textContent = currentPlayers;
                     maxElem.textContent = maxPlayers;
                     statusElem.textContent = "Online";
                     statusElem.className = "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-green-500/10 text-green-400 uppercase tracking-widest border border-green-500/20";
-                    console.log("✅ Sikeres frissítés!");
+                    
+                    console.log(`✅ Szerver Online: ${currentPlayers}/${maxPlayers} játékos`);
                 } else {
-                    throw new Error("Szerver offline vagy nem elérhető");
+                    console.error("❌ HTTP hiba:", response.status);
+                    setOfflineStatus();
                 }
             } catch (error) {
-                console.error("❌ Szerver státusz lekérdezési hiba:", error);
+                console.error("❌ Lekérdezési hiba:", error.message);
                 setOfflineStatus();
             }
         }
 
         function setOfflineStatus() {
-            // Szerver offline státusz
             statusElem.textContent = "Offline";
             statusElem.className = "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-red-500/10 text-red-400 uppercase tracking-widest border border-red-500/20";
             countElem.textContent = "0";
