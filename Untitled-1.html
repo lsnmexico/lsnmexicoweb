@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LSN México | Whitelist</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Montserrat',sans-serif;
+}
+
+body{
+    background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.85)),
+    url('https://images.unsplash.com/photo-1518546305927-5a555bb7020d?q=80&w=1920');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    color:white;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 8%;
+    backdrop-filter:blur(15px);
+}
+
+.logo{
+    font-size:2rem;
+    font-weight:800;
+    color:#ff4444;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+}
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.hero h1{
+    font-size:5rem;
+    margin-bottom:15px;
+    text-transform:uppercase;
+}
+
+.hero h1 span{
+    color:#ff4444;
+}
+
+.hero p{
+    font-size:1.2rem;
+    line-height:1.8;
+    color:#d6d6d6;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 35px;
+    border-radius:50px;
+    background:#ff4444;
+    color:white;
+    text-decoration:none;
+    font-weight:700;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.section{
+    padding:80px 10%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:50px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.1);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:30px;
+}
+
+.card h3{
+    margin-bottom:15px;
+    color:#ff5555;
+}
+
+.whitelist-box{
+    max-width:900px;
+    margin:auto;
+    background:rgba(255,255,255,.08);
+    padding:40px;
+    border-radius:25px;
+    backdrop-filter:blur(12px);
+}
+
+form{
+    display:grid;
+    gap:15px;
+}
+
+input, textarea{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:rgba(255,255,255,.12);
+    color:white;
+}
+
+textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+input::placeholder,
+textarea::placeholder{
+    color:#cccccc;
+}
+
+button{
+    border:none;
+    background:#ff4444;
+    color:white;
+    padding:16px;
+    border-radius:12px;
+    font-size:1rem;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.success{
+    display:none;
+    margin-top:20px;
+    text-align:center;
+    color:#6dff90;
+    font-weight:700;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:#aaa;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:3rem;
+}
+
+.section{
+    padding:60px 6%;
+}
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">LSN México</div>
+
+    <div>
+        <a href="#info">Információ</a>
+        <a href="#factions">Frakciók</a>
+        <a href="#whitelist">Whitelist</a>
+    </div>
+</nav>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>LSN <span>México</span></h1>
+
+        <p>
+            Üdvözlünk a mexikói szerepjáték világában.
+            Válassz oldalt a katonai erők vagy a kartellek között,
+            alakíts szövetségeket, építs történetet és légy része
+            egy folyamatosan fejlődő RP közösségnek.
+        </p>
+
+        <a href="#whitelist" class="btn">
+            Jelentkezés
+        </a>
+
+    </div>
+
+</section>
+
+<section class="section" id="info">
+
+    <h2 class="section-title">A Szerverről</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Komoly RP</h3>
+            <p>
+                Karakterközpontú szerepjáték saját történetekkel
+                és folyamatos fejlődési lehetőségekkel.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Egyedi Rendszerek</h3>
+            <p>
+                Saját gazdaság, frakciók, küldetések
+                és szerveres események.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Aktív Közösség</h3>
+            <p>
+                Staff támogatás, rendszeres események
+                és fejlődő világ.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section" id="factions">
+
+    <h2 class="section-title">Frakciók</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Katonaság</h3>
+            <p>
+                Rendfenntartás, műveletek,
+                területbiztosítás és stratégiai feladatok.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Kartellek</h3>
+            <p>
+                Saját történetek, területi konfliktusok,
+                diplomácia és szerepjáték.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section" id="whitelist">
+
+    <h2 class="section-title">Whitelist Jelentkezés</h2>
+
+    <div class="whitelist-box">
+
+        <form id="applyForm">
+
+            <input type="text" placeholder="Discord név" required>
+
+            <input type="number" placeholder="Életkor" required>
+
+            <input type="text" placeholder="Karakter neve" required>
+
+            <textarea placeholder="Mutatkozz be röviden"></textarea>
+
+            <textarea placeholder="Miért szeretnél csatlakozni az LSN México szerverhez?"></textarea>
+
+            <textarea placeholder="Írj egy rövid RP szituációt"></textarea>
+
+            <button type="submit">
+                Jelentkezés Beküldése
+            </button>
+
+        </form>
+
+        <div class="success" id="successMsg">
+            A jelentkezés rögzítve lett!
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 LSN México Roleplay
+</footer>
+
+<script>
+
+document.getElementById("applyForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    document.getElementById("successMsg")
+    .style.display = "block";
+
+    this.reset();
+
+});
+
+</script>
+
+</body>
+</html>
