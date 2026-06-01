@@ -123,6 +123,28 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #ff5c5c;
         }
+
+        /* Admin Card Styles */
+        .admin-card {
+            transition: all 0.3s ease;
+        }
+
+        .admin-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .admin-card:hover .admin-image {
+            box-shadow: 0 0 30px rgba(255, 62, 62, 0.4);
+        }
+
+        .admin-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 2px solid rgba(255, 62, 62, 0.3);
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
 <body class="text-gray-100 antialiased selection:bg-red-500 selection:text-white">
@@ -142,7 +164,7 @@
     <div class="absolute top-0 left-0 w-full h-[100vh] overflow-hidden pointer-events-none z-0 opacity-40">
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#050508]/60 to-[#050508] z-10"></div>
         <div class="absolute inset-0 bg-radial-gradient z-10" style="background: radial-gradient(circle, transparent 30%, #050508 100%);"></div>
-        <img src="https://media.discordapp.net/attachments/1503034523150061569/1508907969994166483/image.png?ex=6a1d2e4e&is=6a1bdcce&hm=d310a9c18dc7f9707a96183269542949fbfd5a6a6067f9b298186946120" alt="Hero" class="w-full h-full object-cover">
+        <img src="https://media.discordapp.net/attachments/1503034523150061569/1508907969994166483/image.png?ex=6a1d2e4e&is=6a1bdcce&hm=d310a9c18dc7f9707a96183269542949fbfd5a6a6067f9b298186946120f2f89" alt="background" class="w-full h-full object-cover">
     </div>
 
     <!-- HEADER / NAVIGATION -->
@@ -170,13 +192,17 @@
                     Frakciók
                     <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-mexico-accent transition-all duration-300 group-hover:w-full"></span>
                 </a>
+                <a href="#management" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors py-2 relative group">
+                    Vezetőség
+                    <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-mexico-accent transition-all duration-300 group-hover:w-full"></span>
+                </a>
                 <a href="#whitelist" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors py-2 relative group">
                     Whitelist
                     <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-mexico-accent transition-all duration-300 group-hover:w-full"></span>
                 </a>
                 <span class="h-5 w-[1px] bg-white/10"></span>
                 <!-- Join Discord button -->
-                <a href="https://discord.gg/lsnmexico" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#5865F2]/10 border border-[#5865F2]/30 text-[#5865F2] hover:bg-[#5865F2] hover:text-white transition text-xs font-bold uppercase tracking-wider">
+                <a href="https://discord.gg/lsnmexico" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#5865F2]/10 border border-[#5865F2]/30 text-[#5865F2] hover:bg-[#5865F2]/20 transition">
                     <i data-lucide="message-square" class="w-4 h-4"></i>
                     Discord
                 </a>
@@ -193,9 +219,10 @@
             <div class="px-6 py-6 flex flex-col gap-5">
                 <a href="#info" class="text-base font-semibold text-gray-300 hover:text-white transition mobile-link">Információ</a>
                 <a href="#factions" class="text-base font-semibold text-gray-300 hover:text-white transition mobile-link">Frakciók</a>
+                <a href="#management" class="text-base font-semibold text-gray-300 hover:text-white transition mobile-link">Vezetőség</a>
                 <a href="#whitelist" class="text-base font-semibold text-gray-300 hover:text-white transition mobile-link">Whitelist Jelentkezés</a>
                 <div class="h-[1px] bg-white/10 w-full"></div>
-                <a href="https://discord.gg/lsnmexico" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-[#5865F2] text-white hover:shadow-[0_0_20px_rgba(88,101,242,0.4)] transition text-xs font-bold uppercase tracking-wider">
+                <a href="https://discord.gg/lsnmexico" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-[#5865F2] text-white hover:shadow-[0_0_20px_rgba(88,101,242,0.5)] transition">
                     <i data-lucide="message-square" class="w-5 h-5"></i>
                     Csatlakozás a Discordhoz
                 </a>
@@ -228,19 +255,19 @@
 
                 <!-- Lore/Description Subtitle -->
                 <p class="text-gray-300 text-base sm:text-lg leading-relaxed max-w-xl font-light">
-                    Lépj be egy könyörtelen, mégis rendkívül izgalmas mexikói világba. Alakíts ki szövetségeket, vállald fel a rendvédelmi erők elitebb ágát, vagy törj a csúcsra az alvilág sivatagában.
+                    Lépj be egy könyörtelen, mégis rendkívül izgalmas mexikói világba. Alakíts ki szövetségeket, vállald fel a rendvédelmi erők elitebb ágát, vagy törj a csúcsra a drogkartellek között.
                 </p>
 
                 <!-- Interactive Call to Action buttons -->
                 <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                    <a href="#whitelist" class="relative group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 text-white font-extrabold uppercase tracking-wider text-sm transition-all duration-300 overflow-hidden shadow-[0_0_30px_rgba(220,38,38,0.3)] hover:shadow-[0_0_50px_rgba(220,38,38,0.5)]">
+                    <a href="#whitelist" class="relative group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 text-white font-extrabold uppercase tracking-wider text-sm transition-all duration-300 overflow-hidden">
                         <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-amber-600 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <span class="relative z-10 flex items-center gap-2">
                             Whitelist Jelentkezés
                             <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                         </span>
                     </a>
-                    <a href="#info" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white/5 border border-white/10 text-white font-bold uppercase tracking-wider text-sm transition-all hover:bg-white/10 hover:border-white/20">
+                    <a href="#info" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white/5 border border-white/10 text-white font-bold uppercase tracking-wider text-sm hover:bg-white/10 transition">
                         Ismerd meg a szervert
                     </a>
                 </div>
@@ -406,7 +433,7 @@
                         </h3>
                         
                         <p class="text-gray-400 text-sm leading-relaxed max-w-md font-light">
-                            Lépj be a SEDENA (Mexikói Katonaság) soraiba. Feladatod a mexikói tartományok békéjének fenntartása, a drogkartellek visszaszorítása, fegyveres rajtaütéseket szervezni és stratégiai beszélgetéseket folytatni.
+                            Lépj be a SEDENA (Mexikói Katonaság) soraiba. Feladatod a mexikói tartományok békéjének fenntartása, a drogkartellek visszaszorítása, fegyveres rajtaütése...
                         </p>
 
                         <!-- Perks List -->
@@ -455,7 +482,7 @@
                         </h3>
                         
                         <p class="text-gray-400 text-sm leading-relaxed max-w-md font-light">
-                            Vedd át az irányítást a külvárosi laborok és csempészutak felett. Szervezd meg az illegális kereskedelmet, vívj ádáz háborúkat a rivális kartellekkel a város felségterületéért és pénzért.
+                            Vedd át az irányítást a külvárosi laborok és csempészutak felett. Szervezd meg az illegális kereskedelmet, vívj ádáz háborúkat a rivális kartellekkel a...
                         </p>
 
                         <!-- Perks List -->
@@ -480,6 +507,120 @@
                         <a href="#whitelist" class="inline-flex items-center gap-1 text-sm font-bold text-white hover:text-amber-500 transition">
                             Csatlakozz a kartellhez <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MANAGEMENT SECTION (Szerver Vezetőség) -->
+    <section class="py-24 px-6 relative z-10 border-t border-white/5 bg-mexico-dark/40" id="management">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-extrabold tracking-[0.3em] uppercase text-red-500 block">A Szerver Arcai</span>
+                <h2 class="heading-font font-black text-3xl sm:text-4xl uppercase tracking-wider text-white">Szerver Vezetőség</h2>
+                <div class="w-16 h-1 bg-red-600 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Management Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Owner Card 1: Balu -->
+                <div class="admin-card glass-card rounded-2xl p-6 text-center border border-white/5 overflow-hidden">
+                    <div class="absolute -top-12 -right-12 w-24 h-24 bg-red-600/10 rounded-full blur-2xl"></div>
+                    
+                    <div class="relative z-10 space-y-4">
+                        <div class="flex justify-center mb-4">
+                            <div class="w-24 h-24 rounded-xl overflow-hidden border-2 border-red-500/30 shadow-lg">
+                                <div class="w-full h-full bg-gradient-to-br from-red-600 to-red-900 flex items-center justify-center">
+                                    <i data-lucide="crown" class="w-12 h-12 text-red-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="heading-font font-bold text-lg text-white">Balu</h3>
+                            <p class="text-xs font-bold tracking-widest uppercase text-red-400 mt-2">Tulajdonos</p>
+                        </div>
+                        
+                        <p class="text-xs text-gray-400 font-light">
+                            A szerver alapítója és vezetője
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Owner Card 2: Kenzo -->
+                <div class="admin-card glass-card rounded-2xl p-6 text-center border border-white/5 overflow-hidden">
+                    <div class="absolute -top-12 -right-12 w-24 h-24 bg-red-600/10 rounded-full blur-2xl"></div>
+                    
+                    <div class="relative z-10 space-y-4">
+                        <div class="flex justify-center mb-4">
+                            <div class="w-24 h-24 rounded-xl overflow-hidden border-2 border-red-500/30 shadow-lg">
+                                <div class="w-full h-full bg-gradient-to-br from-red-600 to-red-900 flex items-center justify-center">
+                                    <i data-lucide="crown" class="w-12 h-12 text-red-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="heading-font font-bold text-lg text-white">Kenzo</h3>
+                            <p class="text-xs font-bold tracking-widest uppercase text-red-400 mt-2">Tulajdonos</p>
+                        </div>
+                        
+                        <p class="text-xs text-gray-400 font-light">
+                            A szerver stratégiai irányítója
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Head Management Card 1: Keem -->
+                <div class="admin-card glass-card rounded-2xl p-6 text-center border border-white/5 overflow-hidden">
+                    <div class="absolute -top-12 -right-12 w-24 h-24 bg-amber-600/10 rounded-full blur-2xl"></div>
+                    
+                    <div class="relative z-10 space-y-4">
+                        <div class="flex justify-center mb-4">
+                            <div class="w-24 h-24 rounded-xl overflow-hidden border-2 border-amber-500/30 shadow-lg">
+                                <div class="w-full h-full bg-gradient-to-br from-amber-600 to-amber-900 flex items-center justify-center">
+                                    <i data-lucide="shield-alert" class="w-12 h-12 text-amber-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="heading-font font-bold text-lg text-white">Keem</h3>
+                            <p class="text-xs font-bold tracking-widest uppercase text-amber-400 mt-2">Head Management</p>
+                        </div>
+                        
+                        <p class="text-xs text-gray-400 font-light">
+                            A közösség biztonsági felügyelője
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Head Management Card 2: Zsindelly -->
+                <div class="admin-card glass-card rounded-2xl p-6 text-center border border-white/5 overflow-hidden">
+                    <div class="absolute -top-12 -right-12 w-24 h-24 bg-amber-600/10 rounded-full blur-2xl"></div>
+                    
+                    <div class="relative z-10 space-y-4">
+                        <div class="flex justify-center mb-4">
+                            <div class="w-24 h-24 rounded-xl overflow-hidden border-2 border-amber-500/30 shadow-lg">
+                                <div class="w-full h-full bg-gradient-to-br from-amber-600 to-amber-900 flex items-center justify-center">
+                                    <i data-lucide="shield-alert" class="w-12 h-12 text-amber-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="heading-font font-bold text-lg text-white">Zsindelly</h3>
+                            <p class="text-xs font-bold tracking-widest uppercase text-amber-400 mt-2">Head Management</p>
+                        </div>
+                        
+                        <p class="text-xs text-gray-400 font-light">
+                            A szerver üzemeltetésének vezetője
+                        </p>
                     </div>
                 </div>
 
@@ -515,7 +656,7 @@
                                 <i data-lucide="message-square" class="w-4 h-4 text-red-500"></i> Discord felhasználónév
                             </label>
                             <div class="relative">
-                                <input id="discordName" type="text" placeholder="példa_user#1234" required class="w-full bg-mexico-dark/60 border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/30 transition">
+                                <input id="discordName" type="text" placeholder="példa_user#1234" required class="w-full bg-mexico-dark/60 border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-gray-500 focus:border-red-500/50 focus:outline-none transition">
                             </div>
                         </div>
 
@@ -523,7 +664,7 @@
                             <label class="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
                                 <i data-lucide="calendar" class="w-4 h-4 text-red-500"></i> Életkor
                             </label>
-                            <input id="age" type="number" min="14" max="99" placeholder="Pl: 18" required class="w-full bg-mexico-dark/60 border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/30 transition">
+                            <input id="age" type="number" min="14" max="99" placeholder="Pl: 18" required class="w-full bg-mexico-dark/60 border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-gray-500 focus:border-red-500/50 focus:outline-none transition">
                         </div>
                     </div>
 
@@ -532,7 +673,7 @@
                         <label class="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
                             <i data-lucide="user" class="w-4 h-4 text-red-500"></i> Tervezett Karakter Neve
                         </label>
-                        <input id="characterName" type="text" placeholder="Pl: Alejandro Rodriguez" required class="w-full bg-mexico-dark/60 border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/30 transition">
+                        <input id="characterName" type="text" placeholder="Pl: Alejandro Rodriguez" required class="w-full bg-mexico-dark/60 border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-gray-500 focus:border-red-500/50 focus:outline-none transition">
                     </div>
 
                     <!-- Textarea 1: Introduction -->
@@ -540,7 +681,7 @@
                         <label class="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
                             <i data-lucide="text-quote" class="w-4 h-4 text-red-500"></i> Mutatkozz be röviden
                         </label>
-                        <textarea id="intro" placeholder="Írj magadról, az RP tapasztalataidról pár mondatban..." required class="w-full min-h-[120px] bg-mexico-dark/60 border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/30 transition resize-none"></textarea>
+                        <textarea id="intro" placeholder="Írj magadról, az RP tapasztalataidról pár mondatban..." required class="w-full min-h-[120px] bg-mexico-dark/60 border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-gray-500 focus:border-red-500/50 focus:outline-none transition resize-none"></textarea>
                     </div>
 
                     <!-- Textarea 2: Why LSN -->
@@ -548,7 +689,7 @@
                         <label class="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
                             <i data-lucide="help-circle" class="w-4 h-4 text-red-500"></i> Miért szeretnél csatlakozni az LSN México szerverhez?
                         </label>
-                        <textarea id="whyJoin" placeholder="Mi keltette fel az érdeklődésedet? Mit vársz a szervertől?" required class="w-full min-h-[120px] bg-mexico-dark/60 border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/30 transition resize-none"></textarea>
+                        <textarea id="whyJoin" placeholder="Mi keltette fel az érdeklődésedet? Mit vársz a szervertől?" required class="w-full min-h-[120px] bg-mexico-dark/60 border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-gray-500 focus:border-red-500/50 focus:outline-none transition resize-none"></textarea>
                     </div>
 
                     <!-- Textarea 3: RP Situation -->
@@ -556,12 +697,12 @@
                         <label class="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
                             <i data-lucide="terminal" class="w-4 h-4 text-red-500"></i> Írj le egy rövid, tetszőleges RP szituációt
                         </label>
-                        <textarea id="rpSituation" placeholder="Például: Hogyan bonyolítanál le egy fegyverüzletet vagy mit tennél, ha megállítana a katonaság?" required class="w-full min-h-[140px] bg-mexico-dark/60 border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/30 transition resize-none"></textarea>
+                        <textarea id="rpSituation" placeholder="Például: Hogyan bonyolítanál le egy fegyverüzletet vagy mit tennél, ha megállítana a katonaság?" required class="w-full min-h-[120px] bg-mexico-dark/60 border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-gray-500 focus:border-red-500/50 focus:outline-none transition resize-none"></textarea>
                     </div>
 
                     <!-- Form submission button -->
                     <div class="pt-4">
-                        <button type="submit" class="w-full py-4.5 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 text-white heading-font font-extrabold uppercase tracking-wider text-sm transition-all hover:shadow-[0_0_30px_rgba(220,38,38,0.4)] flex items-center justify-center gap-2">
+                        <button type="submit" class="w-full py-4.5 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 text-white heading-font font-extrabold uppercase tracking-wider text-sm transition-all duration-300 hover:shadow-[0_0_30px_rgba(239,68,68,0.4)] flex items-center justify-center gap-2">
                             <span>Jelentkezés Beküldése</span>
                             <i data-lucide="send" class="w-4.5 h-4.5"></i>
                         </button>
@@ -583,7 +724,7 @@
             <div class="space-y-2">
                 <h3 class="heading-font font-black text-2xl text-white uppercase tracking-wider">A Jelentkezés Rögzítve!</h3>
                 <p class="text-gray-400 text-sm font-light">
-                    Köszönjük a jelentkezésed! Tagjaink hamarosan átnézik az űrlapot. Kérjük, csatlakozz a Discord szerverünkre és figyeld a <span class="text-green-400 font-semibold">whitelist-updates</span> csatornát.
+                    Köszönjük a jelentkezésed! Tagjaink hamarosan átnézik az űrlapot. Kérjük, csatlakozz a Discord szerverünkre és figyeld a <span class="text-green-400 font-semibold">whitelist-notifications</span> csatornát.
                 </p>
             </div>
 
@@ -617,6 +758,7 @@
                 <a href="#" class="text-xs font-bold text-gray-400 hover:text-white transition uppercase">Főoldal</a>
                 <a href="#info" class="text-xs font-bold text-gray-400 hover:text-white transition uppercase">Info</a>
                 <a href="#factions" class="text-xs font-bold text-gray-400 hover:text-white transition uppercase">Frakciók</a>
+                <a href="#management" class="text-xs font-bold text-gray-400 hover:text-white transition uppercase">Vezetőség</a>
                 <a href="#whitelist" class="text-xs font-bold text-gray-400 hover:text-white transition uppercase">Whitelist</a>
             </div>
 
