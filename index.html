@@ -123,28 +123,6 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #ff5c5c;
         }
-
-        /* Admin Card Styles */
-        .admin-card {
-            transition: all 0.3s ease;
-        }
-
-        .admin-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .admin-card:hover .admin-image {
-            box-shadow: 0 0 30px rgba(255, 62, 62, 0.4);
-        }
-
-        .admin-image {
-            width: 100px;
-            height: 100px;
-            border-radius: 12px;
-            object-fit: cover;
-            border: 2px solid rgba(255, 62, 62, 0.3);
-            transition: all 0.3s ease;
-        }
     </style>
 </head>
 <body class="text-gray-100 antialiased selection:bg-red-500 selection:text-white">
@@ -192,10 +170,6 @@
                     Frakciók
                     <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-mexico-accent transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a href="#management" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors py-2 relative group">
-                    Vezetőség
-                    <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-mexico-accent transition-all duration-300 group-hover:w-full"></span>
-                </a>
                 <a href="#whitelist" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors py-2 relative group">
                     Whitelist
                     <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-mexico-accent transition-all duration-300 group-hover:w-full"></span>
@@ -219,7 +193,6 @@
             <div class="px-6 py-6 flex flex-col gap-5">
                 <a href="#info" class="text-base font-semibold text-gray-300 hover:text-white transition mobile-link">Információ</a>
                 <a href="#factions" class="text-base font-semibold text-gray-300 hover:text-white transition mobile-link">Frakciók</a>
-                <a href="#management" class="text-base font-semibold text-gray-300 hover:text-white transition mobile-link">Vezetőség</a>
                 <a href="#whitelist" class="text-base font-semibold text-gray-300 hover:text-white transition mobile-link">Whitelist Jelentkezés</a>
                 <div class="h-[1px] bg-white/10 w-full"></div>
                 <a href="https://discord.gg/lsnmexico" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-[#5865F2] text-white hover:shadow-[0_0_20px_rgba(88,101,242,0.5)] transition">
@@ -282,54 +255,76 @@
                     <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-5">
                         <div class="flex items-center gap-2.5">
                             <i data-lucide="activity" class="w-5 h-5 text-red-500 animate-pulse"></i>
-                            <span class="heading-font font-bold text-sm tracking-widest uppercase text-gray-300">Szerver Státusz</span>
+                            <span class="heading-font font-bold text-sm tracking-widest uppercase text-gray-300">Szerver Vezetőség</span>
                         </div>
                         <span id="server-status" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-green-500/10 text-green-400 uppercase tracking-widest border border-green-500/20">
-                            Betöltés...
+                            Online
                         </span>
                     </div>
 
                     <!-- Statistics grid -->
                     <div class="space-y-4">
-                        <!-- Stat Item: Active Players -->
+                        <!-- Owner: Balu -->
                         <div class="bg-white/[0.02] border border-white/5 p-4 rounded-2xl flex items-center justify-between">
                             <div class="flex items-center gap-3">
                                 <div class="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400">
-                                    <i data-lucide="users" class="w-5 h-5"></i>
+                                    <i data-lucide="crown" class="w-5 h-5"></i>
                                 </div>
-                                <span class="text-sm font-semibold text-gray-300">Aktív Játékosok</span>
+                                <div>
+                                    <span class="text-sm font-semibold text-gray-300">Balu</span>
+                                    <p class="text-xs text-gray-500 font-medium">Tulajdonos</p>
+                                </div>
                             </div>
                             <div class="text-right">
-                                <span class="heading-font font-bold text-lg text-white" id="player-count">0</span>
-                                <span class="text-xs text-gray-500 font-medium block">/ <span id="max-players">10</span></span>
+                                <span class="text-xs text-red-400 font-bold uppercase">Founder</span>
                             </div>
                         </div>
 
-                        <!-- Stat Item: Tickrate / Voice -->
+                        <!-- Owner: Kenzo -->
                         <div class="bg-white/[0.02] border border-white/5 p-4 rounded-2xl flex items-center justify-between">
                             <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400">
-                                    <i data-lucide="volume-2" class="w-5 h-5"></i>
+                                <div class="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400">
+                                    <i data-lucide="crown" class="w-5 h-5"></i>
                                 </div>
-                                <span class="text-sm font-semibold text-gray-300">PMA Hangrendszer</span>
+                                <div>
+                                    <span class="text-sm font-semibold text-gray-300">Kenzo</span>
+                                    <p class="text-xs text-gray-500 font-medium">Tulajdonos</p>
+                                </div>
                             </div>
                             <div class="text-right">
-                                <span class="heading-font font-bold text-sm text-blue-400 uppercase tracking-widest">Példás Submix</span>
-                                <span class="text-xs text-gray-500 font-medium block">3D Térhangzás</span>
+                                <span class="text-xs text-red-400 font-bold uppercase">Founder</span>
                             </div>
                         </div>
 
-                        <!-- Stat Item: Frame rates / FPS Optimization -->
+                        <!-- Head Management: Keem -->
                         <div class="bg-white/[0.02] border border-white/5 p-4 rounded-2xl flex items-center justify-between">
                             <div class="flex items-center gap-3">
                                 <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400">
-                                    <i data-lucide="zap" class="w-5 h-5"></i>
+                                    <i data-lucide="shield-alert" class="w-5 h-5"></i>
                                 </div>
-                                <span class="text-sm font-semibold text-gray-300">Optimalizáltság</span>
+                                <div>
+                                    <span class="text-sm font-semibold text-gray-300">Keem</span>
+                                    <p class="text-xs text-gray-500 font-medium">Head Management</p>
+                                </div>
                             </div>
                             <div class="text-right">
-                                <span class="heading-font font-bold text-lg text-white">0.3 ms</span>
-                                <span class="text-xs text-amber-400 font-bold block uppercase tracking-widest text-[10px]">Maximalizált FPS</span>
+                                <span class="text-xs text-amber-400 font-bold uppercase">Manager</span>
+                            </div>
+                        </div>
+
+                        <!-- Head Management: Zsindelly -->
+                        <div class="bg-white/[0.02] border border-white/5 p-4 rounded-2xl flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400">
+                                    <i data-lucide="shield-alert" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <span class="text-sm font-semibold text-gray-300">Zsindelly</span>
+                                    <p class="text-xs text-gray-500 font-medium">Head Management</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-xs text-amber-400 font-bold uppercase">Manager</span>
                             </div>
                         </div>
                     </div>
@@ -514,120 +509,6 @@
         </div>
     </section>
 
-    <!-- MANAGEMENT SECTION (Szerver Vezetőség) -->
-    <section class="py-24 px-6 relative z-10 border-t border-white/5 bg-mexico-dark/40" id="management">
-        <div class="max-w-7xl mx-auto">
-            
-            <!-- Section Header -->
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-                <span class="text-xs font-extrabold tracking-[0.3em] uppercase text-red-500 block">A Szerver Arcai</span>
-                <h2 class="heading-font font-black text-3xl sm:text-4xl uppercase tracking-wider text-white">Szerver Vezetőség</h2>
-                <div class="w-16 h-1 bg-red-600 mx-auto rounded-full"></div>
-            </div>
-
-            <!-- Management Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                
-                <!-- Owner Card 1: Balu -->
-                <div class="admin-card glass-card rounded-2xl p-6 text-center border border-white/5 overflow-hidden">
-                    <div class="absolute -top-12 -right-12 w-24 h-24 bg-red-600/10 rounded-full blur-2xl"></div>
-                    
-                    <div class="relative z-10 space-y-4">
-                        <div class="flex justify-center mb-4">
-                            <div class="w-24 h-24 rounded-xl overflow-hidden border-2 border-red-500/30 shadow-lg">
-                                <div class="w-full h-full bg-gradient-to-br from-red-600 to-red-900 flex items-center justify-center">
-                                    <i data-lucide="crown" class="w-12 h-12 text-red-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <h3 class="heading-font font-bold text-lg text-white">Balu</h3>
-                            <p class="text-xs font-bold tracking-widest uppercase text-red-400 mt-2">Tulajdonos</p>
-                        </div>
-                        
-                        <p class="text-xs text-gray-400 font-light">
-                            A szerver alapítója és vezetője
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Owner Card 2: Kenzo -->
-                <div class="admin-card glass-card rounded-2xl p-6 text-center border border-white/5 overflow-hidden">
-                    <div class="absolute -top-12 -right-12 w-24 h-24 bg-red-600/10 rounded-full blur-2xl"></div>
-                    
-                    <div class="relative z-10 space-y-4">
-                        <div class="flex justify-center mb-4">
-                            <div class="w-24 h-24 rounded-xl overflow-hidden border-2 border-red-500/30 shadow-lg">
-                                <div class="w-full h-full bg-gradient-to-br from-red-600 to-red-900 flex items-center justify-center">
-                                    <i data-lucide="crown" class="w-12 h-12 text-red-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <h3 class="heading-font font-bold text-lg text-white">Kenzo</h3>
-                            <p class="text-xs font-bold tracking-widest uppercase text-red-400 mt-2">Tulajdonos</p>
-                        </div>
-                        
-                        <p class="text-xs text-gray-400 font-light">
-                            A szerver stratégiai irányítója
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Head Management Card 1: Keem -->
-                <div class="admin-card glass-card rounded-2xl p-6 text-center border border-white/5 overflow-hidden">
-                    <div class="absolute -top-12 -right-12 w-24 h-24 bg-amber-600/10 rounded-full blur-2xl"></div>
-                    
-                    <div class="relative z-10 space-y-4">
-                        <div class="flex justify-center mb-4">
-                            <div class="w-24 h-24 rounded-xl overflow-hidden border-2 border-amber-500/30 shadow-lg">
-                                <div class="w-full h-full bg-gradient-to-br from-amber-600 to-amber-900 flex items-center justify-center">
-                                    <i data-lucide="shield-alert" class="w-12 h-12 text-amber-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <h3 class="heading-font font-bold text-lg text-white">Keem</h3>
-                            <p class="text-xs font-bold tracking-widest uppercase text-amber-400 mt-2">Head Management</p>
-                        </div>
-                        
-                        <p class="text-xs text-gray-400 font-light">
-                            A közösség biztonsági felügyelője
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Head Management Card 2: Zsindelly -->
-                <div class="admin-card glass-card rounded-2xl p-6 text-center border border-white/5 overflow-hidden">
-                    <div class="absolute -top-12 -right-12 w-24 h-24 bg-amber-600/10 rounded-full blur-2xl"></div>
-                    
-                    <div class="relative z-10 space-y-4">
-                        <div class="flex justify-center mb-4">
-                            <div class="w-24 h-24 rounded-xl overflow-hidden border-2 border-amber-500/30 shadow-lg">
-                                <div class="w-full h-full bg-gradient-to-br from-amber-600 to-amber-900 flex items-center justify-center">
-                                    <i data-lucide="shield-alert" class="w-12 h-12 text-amber-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <h3 class="heading-font font-bold text-lg text-white">Zsindelly</h3>
-                            <p class="text-xs font-bold tracking-widest uppercase text-amber-400 mt-2">Head Management</p>
-                        </div>
-                        
-                        <p class="text-xs text-gray-400 font-light">
-                            A szerver üzemeltetésének vezetője
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
     <!-- WHITELIST APPLICATION SECTION -->
     <section class="py-24 px-6 relative z-10 border-t border-white/5 bg-[#050508]" id="whitelist">
         <div class="max-w-4xl mx-auto">
@@ -758,7 +639,6 @@
                 <a href="#" class="text-xs font-bold text-gray-400 hover:text-white transition uppercase">Főoldal</a>
                 <a href="#info" class="text-xs font-bold text-gray-400 hover:text-white transition uppercase">Info</a>
                 <a href="#factions" class="text-xs font-bold text-gray-400 hover:text-white transition uppercase">Frakciók</a>
-                <a href="#management" class="text-xs font-bold text-gray-400 hover:text-white transition uppercase">Vezetőség</a>
                 <a href="#whitelist" class="text-xs font-bold text-gray-400 hover:text-white transition uppercase">Whitelist</a>
             </div>
 
@@ -813,63 +693,6 @@
         };
 
         const statusElem = document.getElementById('server-status');
-        const countElem = document.getElementById('player-count');
-        const maxElem = document.getElementById('max-players');
-
-        // Valós idejű státusz lekérdezés - Direct Query
-        async function fetchServerStatus() {
-            try {
-                console.log("🔍 Szerver státusz lekérdezésének indítása...");
-                
-                // Direct FiveM szerver query - /info.json
-                const infoUrl = `http://${SERVER_CONFIG.serverIp}:${SERVER_CONFIG.serverPort}/info.json`;
-                console.log("📡 Lekérdezés:", infoUrl);
-                
-                const response = await fetch(infoUrl, {
-                    method: 'GET',
-                    mode: 'cors',
-                    cache: 'no-cache'
-                });
-                
-                console.log("Válasz státusza:", response.status);
-                
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log("✅ Szerver adatok:", data);
-                    
-                    const currentPlayers = data.clients || 0;
-                    const maxPlayers = data.sv_maxclients || 10;
-                    
-                    // Update DOM
-                    countElem.textContent = currentPlayers;
-                    maxElem.textContent = maxPlayers;
-                    statusElem.textContent = "Online";
-                    statusElem.className = "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-green-500/10 text-green-400 uppercase tracking-widest border border-green-500/20";
-                    
-                    console.log(`✅ Szerver Online: ${currentPlayers}/${maxPlayers} játékos`);
-                } else {
-                    console.error("❌ HTTP hiba:", response.status);
-                    setOfflineStatus();
-                }
-            } catch (error) {
-                console.error("❌ Lekérdezési hiba:", error.message);
-                setOfflineStatus();
-            }
-        }
-
-        function setOfflineStatus() {
-            statusElem.textContent = "Offline";
-            statusElem.className = "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-red-500/10 text-red-400 uppercase tracking-widest border border-red-500/20";
-            countElem.textContent = "0";
-            maxElem.textContent = "0";
-            console.warn("⚠️ Szerver jelenleg offline");
-        }
-
-        // Első futtatás azonnal
-        fetchServerStatus();
-
-        // Periodikus frissítés beállítása
-        setInterval(fetchServerStatus, SERVER_CONFIG.updateInterval);
 
         // Ambient Embers Generator
         const emberContainer = document.getElementById('ember-container');
