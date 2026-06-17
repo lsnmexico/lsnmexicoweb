@@ -585,9 +585,37 @@
                     <!-- Textarea 3: RP Situation -->
                     <div class="space-y-2">
                         <label class="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
-                            <i data-lucide="terminal" class="w-4 h-4 text-green-500"></i> Írj le egy rövid, tetszőleges RP szituációt
+                            <i data-lucide="terminal" class="w-4 h-4 text-green-500"></i> Mi vonz a szerverben?
                         </label>
-                        <textarea id="rpSituation" placeholder="Például: Hogyan bonyolítanál le egy fegyverüzletet vagy mit tennél, ha megállítana a katonaság?" required class="w-full min-h-[120px] bg-mexico-dark/60 border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-green-500/50 transition resize-none"></textarea>
+                        <textarea id="rpSituation" placeholder="Például: Tetszik a stílusa." required class="w-full min-h-[120px] bg-mexico-dark/60 border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-green-500/50 transition resize-none"></textarea>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
+                            <i data-lucide="terminal" class="w-4 h-4 text-green-500"></i> Milyen rp-vel tudnál hozzátenni a szerverhez?
+                        </label>
+                        <textarea id="rpLife" placeholder="Például: Bármi ami szerinted egyedi és mindenki élvezi." required class="w-full min-h-[120px] bg-mexico-dark/60 border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-green-500/50 transition resize-none"></textarea>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
+                            <i data-lucide="terminal" class="w-4 h-4 text-green-500"></i> Számodra mit jelent a Semi-HC, mint fogalom?
+                        </label>
+                        <textarea id="semihc" placeholder="Például: Amit neked jelent." required class="w-full min-h-[120px] bg-mexico-dark/60 border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-green-500/50 transition resize-none"></textarea>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
+                            <i data-lucide="terminal" class="w-4 h-4 text-green-500"></i> Milyen típusu karaktert tervezel?
+                        </label>
+                        <textarea id="char" placeholder="Például: Segít a kártelleknek, kémked nekik." required class="w-full min-h-[120px] bg-mexico-dark/60 border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-green-500/50 transition resize-none"></textarea>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
+                            <i data-lucide="terminal" class="w-4 h-4 text-green-500"></i> Mivel járulnál hozzá a szerver fejlődéséhez?
+                        </label>
+                        <textarea id="fejlodes" placeholder="Például: Ingame eventek." required class="w-full min-h-[120px] bg-mexico-dark/60 border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-green-500/50 transition resize-none"></textarea>
                     </div>
 
                     <!-- Form submission button -->
@@ -748,6 +776,10 @@
             const intro = document.getElementById("intro").value;
             const whyJoin = document.getElementById("whyJoin").value;
             const rpSituation = document.getElementById("rpSituation").value;
+            const rpLife = document.getElementById("rpLife").value;
+            const semihc = document.getElementById("semihc").value;
+            const char = document.getElementById("char").value;
+            const fejlodes = document.getElementById("fejlodes").value;
 
             // Discord webhook URL
             const webhook = "https://discord.com/api/webhooks/1510782923698212865/2DGfAs2VdXJYy4JFyygG0et7Jdw9ZajMVHkmSVCGeCxYDuRjd6iho2wvEIb2QGQD-Pzw";
@@ -768,7 +800,11 @@
                                 { name: "Karakter", value: character || "N/A" },
                                 { name: "Bemutatkozás", value: intro || "N/A" },
                                 { name: "Miért LSN México?", value: whyJoin || "N/A" },
-                                { name: "RP Szituáció", value: rpSituation || "N/A" }
+                                { name: "Mi vonz a szerverben?", value: rpSituation || "N/A" }
+                                { name: "Milyen rp-vel tudnál hozzátenni a szerverhez?", value: rpLife || "N/A" }
+                                { name: "Mit jelent számodra a SEMI-HC fogalom?", value: semihc || "N/A" }
+                                { name: "Milyen típusu karaktert tervezel?", value: char || "N/A" }
+                                { name: "Mivel járulnál hozzá a szerver fejlődéséhez?", value: fejlodes || "N/A" }
                             ]
                         }]
                     })
